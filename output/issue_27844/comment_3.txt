@@ -1,0 +1,1 @@
+Other extensions, such as DDV https://chromewebstore.google.com/detail/digital-data-viewer-ddv/jakfkigacoblojbffhjananlifkombok or Vue Devtools show up as separate tabs in the chrome devtools.

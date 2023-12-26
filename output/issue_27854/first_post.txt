@@ -1,0 +1,10 @@
+ The script yarn  **build-for-devtools-dev** fails due to the function parseRequestedNames in the build file is using the split on the names arguments and in this case since the arguments passed is of type array which doesn't support the prototype split.
+
+<img width="841" alt="Screenshot 2023-12-25 at 10 24 11 AM" src="https://github.com/facebook/react/assets/14840130/6420f5d0-403e-472d-9c8c-b9a8135c2a30">
+  
+
+ Fix:
+Added the fallback method in case the args passed to function is of type array then don't split the input. 
+ 
+
+Yarn **build-for-devtools-dev** after these added changes resolve the issue.

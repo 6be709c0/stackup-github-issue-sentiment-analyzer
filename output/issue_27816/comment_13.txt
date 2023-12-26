@@ -1,0 +1,3 @@
+Please remember to be respectful of the React developers 🌟.
+
+@nepalivai @AnuragGoel09 The source for this page can be found in the `reactjs/react.dev` repo at `src/components/Layout/HomeContent.js`. I quickly skimmed over the file, and it looks like your bug may be around [line 229](https://github.com/reactjs/react.dev/blob/main/src/components/Layout/HomeContent.js#L229) or [line 1110](https://github.com/reactjs/react.dev/blob/main/src/components/Layout/HomeContent.js#L1110).

@@ -1,0 +1,1 @@
+As a workaround, you can enable the extension in incognito mode and open the page in an incognito tab. Then the ⚛️component and ⚛️profiler tabs show up.

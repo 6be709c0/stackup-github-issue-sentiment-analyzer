@@ -1,0 +1,3 @@
+@rickhanlonii yeah, this is already implemented with feature detection: https://github.com/facebook/react/blob/noahlemen-iip-scheduler/packages/scheduler/src/forks/Scheduler.js#L104-L111
+
+it will continue with the 5ms frame interval if its not defined: https://github.com/facebook/react/blob/noahlemen-iip-scheduler/packages/scheduler/src/forks/Scheduler.js#L472-L503

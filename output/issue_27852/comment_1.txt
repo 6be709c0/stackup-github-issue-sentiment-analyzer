@@ -1,0 +1,25 @@
+Checked on Debian12. Content of the file is same after install from source.
+Some output:
+$ cat /usr/share/nodejs/react-is/index.js 
+'use strict';
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./cjs/react-is.production.min.js');
+} else {
+  module.exports = require('./cjs/react-is.development.js');
+}
+$ sudo dpkg -i ./node-react_18.2.0+dfsg+~cs87.31.26-4_all.deb
+[sudo] password for user: 
+(Reading database ... 354612 files and directories currently installed.)
+Preparing to unpack .../node-react_18.2.0+dfsg+~cs87.31.26-4_all.deb ...
+Unpacking node-react (18.2.0+dfsg+~cs87.31.26-4) over (18.2.0+dfsg+~cs87.31.26-4) ...
+Setting up node-react (18.2.0+dfsg+~cs87.31.26-4) ...
+
+$ cat /usr/share/nodejs/react-is/index.js 
+'use strict';
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./cjs/react-is.production.min.js');
+} else {
+  module.exports = require('./cjs/react-is.development.js');
+}

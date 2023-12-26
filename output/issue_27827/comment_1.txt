@@ -1,0 +1,27 @@
+This seems like an issue related to the timing of when the `useEffect` hook captures the variables (`a` and `b`) and when it executes. React doesn't guarantee the exact order in which effects are executed, especially in scenarios like yours where quick updates or multiple changes are occurring.
+
+The behavior you're experiencing might occur due to the asynchronous nature of how React batches updates and executes effects. The effect captures the values at the time it's created, but by the time it runs, those values might have changed, especially if changes are happening rapidly.
+
+One potential way to address this is to use a `ref` to hold the variables, capturing their current values at the time the effect runs. This way, you can ensure the effect uses the most recent values.
+
+Here's an example:
+
+```javascript
+import { useEffect, useRef } from 'react';
+
+function useWtf(a?: string, b?: string) {
+  const aRef = useRef(a);
+  const bRef = useRef(b);
+
+  useEffect(() => {
+    aRef.current = a;
+    bRef.current = b;
+
+    console.log("inside effect", aRef.current, bRef.current);
+  }, [a, b]);
+  
+  console.log("outside effect", a, b);
+}
+```
+
+By using `useRef`, you maintain a reference to the latest values of `a` and `b`. This doesn't change the asynchronous nature of React, but it ensures that when the effect runs, it uses the most recent values captured in the `ref` objects.

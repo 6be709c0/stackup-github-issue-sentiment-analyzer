@@ -1,0 +1,1 @@
+Thanks @nepalivai . I am thinking to change the padding so that text will not look a little congested and also style the coloring for both dark and light mode specifically using the state variable used to define mode.

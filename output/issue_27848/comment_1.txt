@@ -1,0 +1,11 @@
+Maybe something like this is a workaround
+
+```jsx
+return <>
+  <div suppressHydrationWarning id="server-test">server</div>
+  <script dangerouslySetInnerHTML={{ __html: `(() => {
+    const serverTestElement = document.getElementById("server-test");
+    serverTestElement.textContent = "client";
+  })()` }} />
+</>
+```

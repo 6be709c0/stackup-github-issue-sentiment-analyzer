@@ -1,0 +1,6 @@
+## Summary
+
+This has been enabled at Meta for some time, but it looks like the changes were never published here. Enables isInputPending at a `maxYieldMs` of 10ms. Removes `enableIsInputPendingContinuous` flag and its corresponding yield interval, as we ended up landing on a configuration where it never got used.
+
+## How did you test this change?
+`yarn test packages/scheduler/src/__tests__/Scheduler-test.js`

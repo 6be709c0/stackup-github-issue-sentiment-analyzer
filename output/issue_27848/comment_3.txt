@@ -1,0 +1,3 @@
+@ronakrrb @mathisonian Neither of the solutions above will work for our use case unfortunately. In the first example above, the specific scenario we'd like to imagine is that the interactive html is a bit of a black box and we'd like to do as little of string manipulation/parsing as possible. From taking a brief look at it as well, it also does not properly give us the behavior we'd like to have, and it defers to client-side render again. 
+
+In the second scenario the scripts are deferred to useEffect, which we'd also like to avoid, as the scripts should ideally run as soon as the browser has mounted given that they were server-rendered to begin with and there is a delay between initial render, hydration, and mounting. 

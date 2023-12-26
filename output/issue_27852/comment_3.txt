@@ -1,0 +1,9 @@
+Thank you for answering.
+
+I install it as a package because in Ubuntu it comes as a *.deb file and therefore it is possible to install it separately as a package and build from source.
+
+I see contacts of maintainers of the package. So I'll write them.
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Pirate Praveen <praveen@debian.org>
+
+Thank you.

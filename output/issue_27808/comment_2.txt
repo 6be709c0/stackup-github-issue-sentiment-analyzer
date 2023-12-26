@@ -1,0 +1,55 @@
+
+<!--
+  0 failure: 
+  0 warning: 
+  
+  1 markdown notices
+  DangerID: danger-id-stable;
+-->
+
+
+
+
+Comparing: be8aa76873e231555676483a36534bb48ad1b1a3...4102015db232b5cb7b0b66c591908c147bbf298b
+
+## Critical size changes
+
+Includes critical production bundles, as well as any change greater than 2%:
+
+
+  | Name | +/- | Base | Current | +/- gzip | Base gzip | Current gzip |
+  | ---- | --- | ---- | ------- | -------- | --------- | ------------ |
+| [oss-stable/react-dom/cjs/react-dom.production.min.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/oss-stable/react-dom/cjs/react-dom.production.min.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **=** | 175.90 kB | 175.90 kB | = | 54.75 kB | 54.76 kB
+| [oss-experimental/react-dom/cjs/react-dom.production.min.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/oss-experimental/react-dom/cjs/react-dom.production.min.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **=** | 177.97 kB | 177.97 kB | = | 55.39 kB | 55.39 kB
+| [facebook-www/ReactDOM-prod.classic.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/facebook-www/ReactDOM-prod.classic.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **=** | 569.81 kB | 569.81 kB | = | 100.29 kB | 100.29 kB
+| [facebook-www/ReactDOM-prod.modern.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/facebook-www/ReactDOM-prod.modern.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **=** | 553.67 kB | 553.67 kB | = | 97.38 kB | 97.38 kB
+| [__test_utils__/ReactAllWarnings.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/__test_utils__/ReactAllWarnings.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **Deleted** | 67.17 kB | 0.00 kB | Deleted | 16.35 kB | 0.00 kB
+
+## Significant size changes
+
+Includes any change greater than 0.2%:
+
+
+<details>
+<summary>Expand to show</summary>
+
+  | Name | +/- | Base | Current | +/- gzip | Base gzip | Current gzip |
+  | ---- | --- | ---- | ------- | -------- | --------- | ------------ |
+| [oss-stable-semver/react-dom/umd/react-dom.development.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/oss-stable-semver/react-dom/umd/react-dom.development.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.40%** | 1,397.31 kB | 1,402.95 kB | +0.33% | 297.68 kB | 298.66 kB
+| [oss-stable/react-dom/umd/react-dom.development.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/oss-stable/react-dom/umd/react-dom.development.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.40%** | 1,397.34 kB | 1,402.97 kB | +0.33% | 297.70 kB | 298.68 kB
+| [oss-experimental/react-dom/umd/react-dom.development.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/oss-experimental/react-dom/umd/react-dom.development.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.40%** | 1,410.86 kB | 1,416.49 kB | +0.33% | 300.14 kB | 301.14 kB
+| [oss-stable-semver/react-dom/cjs/react-dom.development.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/oss-stable-semver/react-dom/cjs/react-dom.development.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.40%** | 1,333.25 kB | 1,338.57 kB | +0.33% | 294.65 kB | 295.61 kB
+| [oss-stable/react-dom/cjs/react-dom.development.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/oss-stable/react-dom/cjs/react-dom.development.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.40%** | 1,333.27 kB | 1,338.59 kB | +0.33% | 294.68 kB | 295.64 kB
+| [oss-experimental/react-dom/cjs/react-dom.development.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/oss-experimental/react-dom/cjs/react-dom.development.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.40%** | 1,346.14 kB | 1,351.46 kB | +0.32% | 297.08 kB | 298.04 kB
+| [oss-experimental/react-dom/cjs/react-dom-unstable_testing.development.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/oss-experimental/react-dom/cjs/react-dom-unstable_testing.development.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.39%** | 1,364.19 kB | 1,369.51 kB | +0.31% | 301.44 kB | 302.39 kB
+| [facebook-www/ReactDOM-dev.modern.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/facebook-www/ReactDOM-dev.modern.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.39%** | 1,585.43 kB | 1,591.58 kB | +0.31% | 314.98 kB | 315.95 kB
+| [facebook-www/ReactDOMTesting-dev.modern.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/facebook-www/ReactDOMTesting-dev.modern.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.38%** | 1,606.43 kB | 1,612.58 kB | +0.31% | 319.51 kB | 320.50 kB
+| [facebook-www/ReactDOM-dev.classic.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/facebook-www/ReactDOM-dev.classic.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.38%** | 1,617.02 kB | 1,623.17 kB | +0.31% | 320.75 kB | 321.74 kB
+| [facebook-www/ReactDOMTesting-dev.classic.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/facebook-www/ReactDOMTesting-dev.classic.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **+0.38%** | 1,638.02 kB | 1,644.17 kB | +0.30% | 325.25 kB | 326.24 kB
+| [__test_utils__/ReactAllWarnings.js](https://react-builds.vercel.app/commits/4102015db232b5cb7b0b66c591908c147bbf298b/files/__test_utils__/ReactAllWarnings.js?compare=be8aa76873e231555676483a36534bb48ad1b1a3) | **Deleted** | 67.17 kB | 0.00 kB | Deleted | 16.35 kB | 0.00 kB
+</details>
+
+
+<p align="right">
+  Generated by :no_entry_sign: <a href="https://danger.systems/js">dangerJS</a> against 4102015db232b5cb7b0b66c591908c147bbf298b
+</p>
