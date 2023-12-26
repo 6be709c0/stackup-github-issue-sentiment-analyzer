@@ -1,0 +1,4 @@
+> e should be object not variable
+
+There's no `e` in their code. At least not in the branch they provided.
+

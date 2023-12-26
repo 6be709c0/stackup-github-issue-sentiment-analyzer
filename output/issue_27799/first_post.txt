@@ -1,0 +1,160 @@
+## Summary
+
+This pull request converts the CircleCI workflows to GitHub actions workflows. [Github Actions Importer](https://github.com/github/gh-actions-importer) was used to convert the workflows initially, then I edited them manually to correct errors in translation.  
+
+**Issues**
+1. facebook/react/build_and_test -> build_devtools_and_process_artifacts  
+This job fails during the execution of `yarn build` within the `packages/react-devtools-extensions` directory with the following error:
+<details>
+  <summary>Errors</summary>
+
+```bash
+yarn run v1.22.21
+$ cross-env NODE_ENV=production yarn run build:chrome && yarn run build:firefox && yarn run build:edge
+$ cross-env NODE_ENV=production node ./chrome/build
+assets by status 5.57 MiB [cached] 13 assets
+orphan modules 1.27 MiB [orphan] 261 modules
+runtime modules 7.95 KiB 19 modules
+built modules 5.15 MiB [built]
+  modules by path ../react-devtools-shared/src/ 2.85 MiB 129 modules
+  modules by path ../../node_modules/ 445 KiB 41 modules
+  modules by path ./src/ 1.4 MiB
+    modules by path ./src/contentScripts/*.js 349 KiB 6 modules
+    modules by path ./src/background/*.js 14.6 KiB 2 modules
+    modules by path ./src/main/*.js 1.04 MiB 2 modules
+    + 1 module
+  modules by path ../react-devtools-timeline/ 482 KiB
+    modules by path ../react-devtools-timeline/src/*.css 14.4 KiB 8 modules
+    ../react-devtools-timeline/src/import-worker/importFile.worker.js 444 KiB [not cacheable] [built] [code generated]
+    ../react-devtools-timeline/node_modules/regenerator-runtime/runtime.js 23.7 KiB [built] [code generated]
+
+ERROR in ../../node_modules/@reach/auto-id/dist/reach-auto-id.esm.js 1:0-44
+Module not found: Error: Can't resolve 'react' in '/home/runner/work/react/react/node_modules/@reach/auto-id/dist'
+ @ ../../node_modules/@reach/tooltip/dist/reach-tooltip.esm.js 2:0-39 211:18-23
+ @ ../react-devtools-shared/src/devtools/views/Components/reach-ui/tooltip.js 12:0-42 25:24-36
+ @ ../react-devtools-shared/src/devtools/views/TabBar.js 13:0-52 106:48-55
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 19:0-30 205:39-45
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../../node_modules/@reach/descendants/dist/reach-descendants.esm.js 1:0-82
+Module not found: Error: Can't resolve 'react' in '/home/runner/work/react/react/node_modules/@reach/descendants/dist'
+ @ ../../node_modules/@reach/dropdown/dist/reach-dropdown.esm.js 4:0-154 67:45-68 93:28-46 160:36-54 353:14-27 705:5-25 982:9-23
+ @ ../../node_modules/@reach/menu-button/dist/reach-menu-button.esm.js 5:0-146 84:76-92 115:28-46 164:25-40 224:26-42 356:28-46 393:28-46
+ @ ../react-devtools-shared/src/devtools/views/Components/reach-ui/menu-button.js 12:0-91 23:24-37 29:0-48 29:0-48 29:0-48
+ @ ../react-devtools-shared/src/devtools/views/Components/OwnersStack.js 20:0-90 161:53-61 172:42-46 172:87-97 181:42-50
+ @ ../react-devtools-shared/src/devtools/views/Components/Tree.js 21:0-40 342:57-68
+ @ ../react-devtools-shared/src/devtools/views/Components/Components.js 11:0-26 108:38-42
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 17:0-49 214:38-48
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../../node_modules/@reach/dropdown/dist/reach-dropdown.esm.js 1:0-125
+Module not found: Error: Can't resolve 'react' in '/home/runner/work/react/react/node_modules/@reach/dropdown/dist'
+ @ ../../node_modules/@reach/menu-button/dist/reach-menu-button.esm.js 5:0-146 84:76-92 115:28-46 164:25-40 224:26-42 356:28-46 393:28-46
+ @ ../react-devtools-shared/src/devtools/views/Components/reach-ui/menu-button.js 12:0-91 23:24-37 29:0-48 29:0-48 29:0-48
+ @ ../react-devtools-shared/src/devtools/views/Components/OwnersStack.js 20:0-90 161:53-61 172:42-46 172:87-97 181:42-50
+ @ ../react-devtools-shared/src/devtools/views/Components/Tree.js 21:0-40 342:57-68
+ @ ../react-devtools-shared/src/devtools/views/Components/Components.js 11:0-26 108:38-42
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 17:0-49 214:38-48
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../../node_modules/@reach/menu-button/dist/reach-menu-button.esm.js 1:0-88
+Module not found: Error: Can't resolve 'react' in '/home/runner/work/react/react/node_modules/@reach/menu-button/dist'
+ @ ../react-devtools-shared/src/devtools/views/Components/reach-ui/menu-button.js 12:0-91 23:24-37 29:0-48 29:0-48 29:0-48
+ @ ../react-devtools-shared/src/devtools/views/Components/OwnersStack.js 20:0-90 161:53-61 172:42-46 172:87-97 181:42-50
+ @ ../react-devtools-shared/src/devtools/views/Components/Tree.js 21:0-40 342:57-68
+ @ ../react-devtools-shared/src/devtools/views/Components/Components.js 11:0-26 108:38-42
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 17:0-49 214:38-48
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../../node_modules/@reach/menu-button/dist/reach-menu-button.esm.js 8:0-38
+Module not found: Error: Can't resolve 'react-is' in '/home/runner/work/react/react/node_modules/@reach/menu-button/dist'
+ @ ../react-devtools-shared/src/devtools/views/Components/reach-ui/menu-button.js 12:0-91 23:24-37 29:0-48 29:0-48 29:0-48
+ @ ../react-devtools-shared/src/devtools/views/Components/OwnersStack.js 20:0-90 161:53-61 172:42-46 172:87-97 181:42-50
+ @ ../react-devtools-shared/src/devtools/views/Components/Tree.js 21:0-40 342:57-68
+ @ ../react-devtools-shared/src/devtools/views/Components/Components.js 11:0-26 108:38-42
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 17:0-49 214:38-48
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../../node_modules/@reach/popover/dist/reach-popover.esm.js 1:0-69
+Module not found: Error: Can't resolve 'react' in '/home/runner/work/react/react/node_modules/@reach/popover/dist'
+ @ ../../node_modules/@reach/menu-button/dist/reach-menu-button.esm.js 4:0-41 368:45-52
+ @ ../react-devtools-shared/src/devtools/views/Components/reach-ui/menu-button.js 12:0-91 23:24-37 29:0-48 29:0-48 29:0-48
+ @ ../react-devtools-shared/src/devtools/views/Components/OwnersStack.js 20:0-90 161:53-61 172:42-46 172:87-97 181:42-50
+ @ ../react-devtools-shared/src/devtools/views/Components/Tree.js 21:0-40 342:57-68
+ @ ../react-devtools-shared/src/devtools/views/Components/Components.js 11:0-26 108:38-42
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 17:0-49 214:38-48
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../../node_modules/@reach/portal/dist/reach-portal.esm.js 1:0-46
+Module not found: Error: Can't resolve 'react' in '/home/runner/work/react/react/node_modules/@reach/portal/dist'
+ @ ../../node_modules/@reach/tooltip/dist/reach-tooltip.esm.js 9:0-39 426:48-54
+ @ ../react-devtools-shared/src/devtools/views/Components/reach-ui/tooltip.js 12:0-42 25:24-36
+ @ ../react-devtools-shared/src/devtools/views/TabBar.js 13:0-52 106:48-55
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 19:0-30 205:39-45
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../react-devtools-timeline/src/TimelineSearchContext.js 9:0-31
+Module not found: Error: Can't resolve 'react' in '/home/runner/work/react/react/packages/react-devtools-timeline/src'
+ @ ../react-devtools-timeline/src/Timeline.js 21:0-74 68:47-78 146:42-73
+ @ ../react-devtools-shared/src/devtools/views/Profiler/Profiler.js 18:0-64 70:48-56
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 18:0-43 219:38-46
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../react-devtools-timeline/src/TimelineSearchInput.js 9:0-31
+Module not found: Error: Can't resolve 'react' in '/home/runner/work/react/react/packages/react-devtools-timeline/src'
+ @ ../react-devtools-timeline/src/Timeline.js 19:0-56 71:40-59 149:38-57
+ @ ../react-devtools-shared/src/devtools/views/Profiler/Profiler.js 18:0-64 70:48-56
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 18:0-43 219:38-46
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../react-devtools-timeline/src/TimelineSearchInput.js 11:0-41
+Module not found: Error: Can't resolve 'react-dom' in '/home/runner/work/react/react/packages/react-devtools-timeline/src'
+ @ ../react-devtools-timeline/src/Timeline.js 19:0-56 71:40-59 149:38-57
+ @ ../react-devtools-shared/src/devtools/views/Profiler/Profiler.js 18:0-64 70:48-56
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 18:0-43 219:38-46
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../react-devtools-timeline/src/utils/useSmartTooltip.js 9:0-48
+Module not found: Error: Can't resolve 'react' in '/home/runner/work/react/react/packages/react-devtools-timeline/src/utils'
+ @ ../react-devtools-timeline/src/EventTooltip.js 12:0-54 46:14-29
+ @ ../react-devtools-timeline/src/CanvasPage.js 18:0-42 598:101-113
+ @ ../react-devtools-timeline/src/Timeline.js 17:0-38 71:101-111 149:99-109
+ @ ../react-devtools-shared/src/devtools/views/Profiler/Profiler.js 18:0-64 70:48-56
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 18:0-43 219:38-46
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+ERROR in ../react-devtools-timeline/src/view-base/useCanvasInteraction.js 9:0-42
+Module not found: Error: Can't resolve 'react' in '/home/runner/work/react/react/packages/react-devtools-timeline/src/view-base'
+ @ ../react-devtools-timeline/src/view-base/index.js 17:0-39 17:0-39
+ @ ../react-devtools-timeline/src/CanvasPage.js 14:0-191 105:53-62 134:32-39 151:14-23 173:33-51 176:43-67 180:28-41 265:25-29 265:53-76 308:43-69 346:2-22
+ @ ../react-devtools-timeline/src/Timeline.js 17:0-38 71:101-111 149:99-109
+ @ ../react-devtools-shared/src/devtools/views/Profiler/Profiler.js 18:0-64 70:48-56
+ @ ../react-devtools-shared/src/devtools/views/DevTools.js 18:0-43 219:38-46
+ @ ./src/main/index.js 9:0-73 156:44-52
+
+153 errors have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+webpack 5.82.1 compiled with 153 errors in 23477 ms
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+Error: Process completed with exit code 1.
+```
+
+</details>
+
+2. facebook/react/build_and_test -> yarn_test matrix  
+These jobs fail because tests are failing. These jobs seem to run a lot more tests than the same job in circleci and I don't know why.
+
+3. facebook/react/build_and_test -> yarn_test_build matrix  
+These jobs fail because tests are failing. These jobs seem to run a lot more tests than the same job in circleci and I don't know why.
+
+4. facebook/react/build_and_test -> run_devtools_e2e_tests  
+These jobs fail because tests are failing. These jobs seem to run a lot more tests than the same job in circleci and I don't know why.
+
+## How did you test this change?
+
+I tested these changes in a forked repo. You can [view the logs of this workflow in my fork](https://github.com/robandpdx/react/actions).
+
+https://fburl.com/workplace/f6mz6tmw

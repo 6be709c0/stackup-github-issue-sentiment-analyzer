@@ -1,0 +1,5 @@
+few test added to `reactDOMRoot` container on few cases
+checking around:-
+1. `container` being an `element` node
+2. `container` being a `document` node
+3.  `container` being a  `documentFragment` node

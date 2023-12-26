@@ -1,0 +1,42 @@
+@jo-arciniegas 
+Would be great if you can provide some code example/sandbox to reproduce it.
+Since for me it works well with the following code:
+```
+import React, { createContext, useState, useContext } from "react";
+
+const Context = createContext();
+
+function MyProvider({ children }) {
+    const [value, setValue] = useState('Initial Value');
+
+    return (
+        <Context.Provider value={{ value, setValue }}>
+            {children}
+        </Context.Provider>
+    );
+}
+
+const ChildComponent = () => {
+    const { value, setValue } = useContext(Context);
+
+    return (
+        <div>
+            <h1>Value: {value}</h1>
+            <button onClick={() => setValue(Math.random())}>Set a new value</button>
+        </div>
+    );
+};
+
+function App() {
+    return (
+    <div className="App">
+        <MyProvider>
+            <ChildComponent />
+        </MyProvider>
+    </div>
+  );
+}
+
+export default App;
+
+```

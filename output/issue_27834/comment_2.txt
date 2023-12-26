@@ -1,0 +1,1 @@
+Hi, I looked at your link and I think I found the reason for [this issue](https://github.com/vitejs/vite/issues/5885) in Vite. They offer several solutions. You can try updating the [React plugin](https://github.com/vitejs/vite/issues/5885#issuecomment-1152978143) for Vite or try [changing the env](https://github.com/vitejs/vite/issues/5885#issuecomment-1020082111).

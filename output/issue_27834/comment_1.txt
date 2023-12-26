@@ -1,0 +1,39 @@
+Apologies for the typo. Here's the revised content:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- React Refresh scripts for development -->
+  <script type="module">
+    import { injectIntoGlobalHook } from "/@react-refresh";
+    injectIntoGlobalHook(window);
+    window.$RefreshReg$ = () => {};
+    window.$RefreshSig$ = () => (type) => type;
+  </script>
+
+  <!-- Vite development client script -->
+  <script type="module" src="/@vite/client"></script>
+
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/*" href="/src/assets/images/android-chrome-512x512.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Your generated output.css -->
+  <link href="/dist/output.css" rel="stylesheet" />
+  
+  <title>Avi Shihora</title>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <!-- Main React app script -->
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
+```
+
+This HTML file contains the foundational structure for your application, including linked React scripts, stylesheets, and the entry point for your application within the `<div id="root">` tag. Additionally, it includes a stylesheet named `output.css`, which is located at `/dist/output.css`.
+And the file name is output.css for some reason

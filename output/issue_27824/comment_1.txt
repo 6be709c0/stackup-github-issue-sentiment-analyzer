@@ -1,0 +1,5 @@
+There is a possibility that future versions of React may introduce optimizations to improve performance and reduce size. The development team is constantly working to increase efficiency and reduce package size.
+
+As for a more modular installation, as part of React development, they are working on Concurrent Mode and the Suspense API, which can offer improvements in loading only the necessary components. However, whether this will be a significant reduction in the size of the package or the creation of a more Preact–like functionality is a question that has not yet been answered.
+
+Preact is known for its smaller size and compatibility with React due to a similar API, but at the same time has a reduced size. Perhaps React will adopt similar frameworks to improve efficiency, but significant changes in this direction may require time and careful approach due to the widespread use of React and the need to maintain backward compatibility.

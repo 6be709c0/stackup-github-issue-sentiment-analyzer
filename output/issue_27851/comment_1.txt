@@ -1,0 +1,8 @@
+e should be object not variable,
+Error is due to the:
+`const e = "some string"; // this is a variable not obejct`
+`var hasProperty = e.hasOwnProperty("someProperty");`
+This is how your code should look like:
+`const e = { name: "xyz" };`
+`const prop = e.hasOwnProperty("name");`
+`console.log(prop); // output will be true because name is property of e`

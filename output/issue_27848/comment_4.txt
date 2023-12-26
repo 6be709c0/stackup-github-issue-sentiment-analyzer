@@ -1,0 +1,19 @@
+@ilyaGurevich 
+I agree the delay will be inevitable using useEffect. What about the below solution?
+
+```
+import { hydrateRoot } from 'react-dom/client';
+const htmlString = '<div id="server-test"><div>server</div></div>';
+
+const ClientSide = () => {
+    return (
+        <div suppressHydrationWarning={true}>client</div>;
+    );
+}
+
+hydrateRoot(document.getElementById('server-test'), <ClientSide />);
+
+return <div dangerouslySetInnerHTML={{ __html: htmlString }} />;
+```
+
+A bit of rearranging and placement of the code will be required in your JSX / TSX file.

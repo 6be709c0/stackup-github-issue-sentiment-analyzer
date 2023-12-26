@@ -1,0 +1,4 @@
+@pwbriggs Thanks for the help I will be working on the issue ASAP.
+
+----update---
+I did some digging around the line of code you suggested and found the selection option in [line 2356](https://github.com/reactjs/react.dev/blob/af54fc873819892f6050340df236f33a18ba5fb8/src/components/Layout/HomeContent.js#L2356) but I can't find anything leading to its either it's id or the CSS file itself.

@@ -1,0 +1,4 @@
+> > Disables legacy context for the next major release. These have been deprecated for a long time now and have been warning.
+> 
+> React is getting major release? 👀
+

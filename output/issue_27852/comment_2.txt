@@ -1,0 +1,3 @@
+Why in the world are you trying to install React as a Linux package?
+
+Also, the React team is definitely not responsible for any repackaging of React into a Linux package - they only publish to NPM.

@@ -1,0 +1,10 @@
+Will this solution work?
+
+```
+const htmlString = '<div id="server-test">server</div>';
+useEffect(() => {
+    const serverTestElement = document.getElementById("server-test");
+    serverTestElement.textContent = "client";
+}, []);
+return <div dangerouslySetInnerHTML={{ __html: htmlString }} />;
+```

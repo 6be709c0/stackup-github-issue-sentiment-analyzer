@@ -1,0 +1,41 @@
+## Summary
+
+It is not possible to publish a third-party library Text/TextInput component that accepts raw text as children.
+The function [createTextInstance][1] triggers an error if the name of the HostComponent is not one of those defined in [getChildHostComponent][2].
+
+[1]: https://github.com/fabriziobertoglio1987/react-native/blob/385473522cbc525aad08500f5a752dea734c14c3/packages/react-native/Libraries/Renderer/implementations/ReactNativeRenderer-dev.js#L5373
+[2]: https://github.com/fabriziobertoglio1987/react/blob/96740fbff5de90b3899db8d9c7df668c675c632b/packages/react-native-renderer/src/ReactNativeHostConfig.js#L200-L210 "getChildHostComponent"
+
+This PR adds one additional type to the react-native renderer to be used by third-party libraries (fixes https://github.com/facebook/react-native/issues/25136). 
+
+#### Additional info on the motivations for this change
+
+The react-native team previously suggested publishing react-native patches for Text and TextInput through a third-party library (https://github.com/react-native-community/discussions-and-proposals/discussions/731#discussioncomment-7821826).
+
+The library [react-native-improved][5] provides react-native bug fixes without using patch-package or forking react-native. 
+
+The project is currently a proof of concept and applies only one fix (PR https://github.com/facebook/react-native/pull/41770) to the react-native Text component, but more components and fixes could be published in the future. 
+
+The advantages of this approach over forking react-native are the following:
+
+[5]: https://github.com/fabriziobertoglio1987/react-native-improved
+
+- The components are based on the react-native implementation (for ex. [ReactTextView][6], [ReactTextViewManager][6], and ReactTextShadowNode).  
+- It is possible to add javascript, android and iOS patches
+- No issues upgrading react-native
+- The fixes can be used selectively in the application (for ex. by using `import { TextImproved } from 'react-native-improved'`)
+- Allows a wider community to contribute to react-native
+- May help make the release process of react-native easier in the future 
+- Fast development workflow (building react-native from source with third party libraries may take 10-30 minutes)
+
+[6]: https://github.com/fabriziobertoglio1987/react-native-improved/tree/main/android/src/main/java/com/text
+
+## How did you test this change?
+
+- I tested the solution with [patch-package](https://github.com/fabriziobertoglio1987/react-native-improved/blob/main/example/patches/react-native%2B0.73.0%2B001%2Bfix-renderer-text-runtime.patch) in the react-native-improved [example](https://github.com/fabriziobertoglio1987/react-native-improved/blob/main/example/patches/react-native%2B0.73.0%2B001%2Bfix-renderer-text-runtime.patch) 
+- I tested the solution in a brand new react-native 0.73 app after installing react-native-improved npm package
+
+| Before    | After |
+| ----------- | ----------- |
+| <img src="https://user-images.githubusercontent.com/24992535/290129932-c2d577d5-7c46-4dbb-b09c-96f7a3c28788.png" width="350" />      | <img src="https://user-images.githubusercontent.com/24992535/290129799-f70d8ff1-4e1e-43d1-b03e-a644183a66b7.png" width="350" />       |
+

@@ -1,0 +1,1 @@
+`React.createFactory` has been long deprecated. This removes it for the next release.

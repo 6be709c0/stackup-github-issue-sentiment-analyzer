@@ -1,0 +1,7 @@
+Google Chrome Version 120.0.6099.110 (Official Build) (64-bit)
+React Developer Tools Version 5.0.0 (12/5/2023)
+Windows 11 Business Version 21H2, OS build 22000.2538
+
+This happens on all pages.
+Tried removing all other extensions, reloading page, reopening devtools, restarting chrome, reinstalling extension.
+The only thing that works is incognito mode.

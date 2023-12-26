@@ -1,0 +1,3 @@
+> Under what circumstances would this error occur?
+
+I have a state, by which I am mapping and rendering input field. There is a button, by clicking that I am adding an element to that array. Every input field has a onchange, which helps me to keep track of all of the input fields value.If I write something any of input or tries to add input by clicking the button.It throws me this error
